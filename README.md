@@ -20,3 +20,97 @@ This repository contains the following files:
 2. Use the SQL queries in the `Queries_&_Others.sql` folder to retrieve relevant information.
 
 For any additional information, refer to the individual `README.md` files in the respective folders.
+
+Table Customers {
+  customer_id INT [pk]
+  first_name VARCHAR
+  last_name VARCHAR
+  email_address VARCHAR
+  phone_number VARCHAR
+  calling_code VARCHAR
+  address_id INT [ref: > CustomerAddresses.address_id]
+}
+
+Table CustomerAddresses {
+  address_id INT [pk]
+  street_name VARCHAR
+  street_no INT
+  city VARCHAR
+  state VARCHAR
+  zip VARCHAR
+  country VARCHAR
+}
+
+Table Suppliers {
+  supplier_id INT [pk]
+  supplier_name VARCHAR
+  email_address VARCHAR
+  phone_number VARCHAR
+  address VARCHAR
+}
+
+Table SupplierDeliveries {
+  delivery_id INT [pk]
+  supplier_id INT [ref: > Suppliers.supplier_id]
+  product_id INT [ref: > Products.product_id]
+  delivery_date DATE
+  tracking_number VARCHAR
+  quantity INT
+  price DECIMAL
+}
+
+Table Products {
+  product_id INT [pk]
+  product_name VARCHAR
+  supplier_id INT [ref: > Suppliers.supplier_id]
+  description TEXT
+  price DECIMAL
+}
+
+Table Orders {
+  order_id INT [pk]
+  customer_id INT [ref: > Customers.customer_id]
+  order_date DATE
+  total_price DECIMAL
+}
+
+Table OrderItems {
+  order_item_id INT [pk]
+  order_id INT [ref: > Orders.order_id]
+  product_id INT [ref: > Products.product_id]
+  quantity INT
+  price DECIMAL
+}
+
+Table ReturnedItems {
+  returned_item_id INT [pk]
+  order_id INT [ref: > Orders.order_id]
+  product_id INT [ref: > Products.product_id]
+}
+
+Table Refunds {
+  refund_id INT [pk]
+  returned_item_id INT [ref: > ReturnedItems.returned_item_id]
+  refund_date DATETIME
+  amount DECIMAL
+}
+
+Table Delivery {
+  delivery_id INT [pk]
+  order_id INT [ref: > Orders.order_id]
+  tracking_number VARCHAR
+  delivery_date DATE
+}
+
+Table PaymentMethods {
+  payment_method_id INT [pk]
+  method_name VARCHAR
+}
+
+Table Payments {
+  payment_id INT [pk]
+  order_id INT [ref: > Orders.order_id]
+  payment_method_id INT [ref: > PaymentMethods.payment_method_id]
+  payment_date DATETIME
+  amount DECIMAL
+}
