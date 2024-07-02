@@ -5,7 +5,9 @@
 This repository contains the following files:
 
 ## ER Diagrams
-- `er-diagrams/database_er_diagram.png`: The ER diagram of the database schema.
+- `er-diagr![Uploading ER Diagram.png…]()
+ams/database_er_diagram.png`: The ER diagram of the database schema.
+- 
 
 ## Database Files
 - `create-tables.sql`: SQL script to create all tables.
