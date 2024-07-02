@@ -5,9 +5,8 @@
 This repository contains the following files:
 
 ## ER Diagrams
-- `er-diagr![Uploading ER Diagram.png…]()
-ams/database_er_diagram.png`: The ER diagram of the database schema.
-- 
+ <img width="1109" alt="ER Diagram" src="https://github.com/Anushsekar/M605A-Grocery-store-DB/assets/67989000/7d2ab965-bc42-4984-8057-a99a5de20a0b">
+
 
 ## Database Files
 - `create-tables.sql`: SQL script to create all tables.
